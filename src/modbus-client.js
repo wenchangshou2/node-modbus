@@ -65,16 +65,20 @@ class ModbusClient {
    * })
    */
   readCoils (start, count) {
+    console.log('readCoils')
     debug('issuing new read coils request')
     let request
 
     try {
       request = new ReadCoilsRequestBody(start, count)
+      console.log('request',request)
     } catch (e) {
       return Promise.reject(e)
     }
-
     return this._requestHandler.register(request)
+  }
+  setAddress(address) {
+    this._requestHandler.setAddress(address);
   }
 
   /** Execute ReadDiscreteInputs Request (Function Code 0x02)

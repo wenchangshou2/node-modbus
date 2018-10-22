@@ -1,12 +1,12 @@
 {
-  "name": "jsmodbus",
+  "name": "zoolon-modbus",
   "version": "3.1.0",
-  "description": "Implementation for the Serial/TCP Modbus protocol.",
-  "author": "Stefan Poeter <stefan.poeter@cloud-automation.de>",
+  "description": "jsmodbus版本",
+  "author": "wcs <wenchangshou@gmail.com>",
   "main": "./src/modbus.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Cloud-Automation/node-modbus"
+    "url": "https://github.com/wenchangshou2/node-modbus"
   },
   "engines": {
     "node": ">=6.0.0"

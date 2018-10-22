@@ -23,14 +23,16 @@ class ModbusRTUClientRequestHandler extends ModbusClientRequestHandler {
 
     this._socket.on('open', this._onConnect.bind(this))
   }
-
+  setAddress(address){
+    this._address=address;
+  }
   register (requestBody) {
     debug('registrating new request')
 
     let request = new ModbusRTURequest(this._address, requestBody)
-
     return super.register(request)
   }
+
 
   handle (response) {
     debug('new response coming in')

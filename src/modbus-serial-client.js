@@ -81,7 +81,6 @@ module.exports = stampit()
       crcBuf.writeUInt16LE(crc16, 0)
 
       var pkt = Buffer.concat([buf, crcBuf])
-
       serialport.write(pkt, function (err) {
         if (err) {
           this.emit('error', err)
