@@ -137,17 +137,17 @@ class ModbusClientRequestHandler {
 
     this._currentRequest = this._requests.shift()
 
-    // if (this._state === 'offline') {
-    //   debug('rejecting request immediatly, client offline')
-    //   this._currentRequest.reject({
-    //     'err': OFFLINE,
-    //     'message': 'no connection to modbus server'
-    //   })
-    //   this._clearCurrentRequest()
-    //   /* start next request */
-    //   setTimeout(this._flush.bind(this), 0)
-    //   return
-    // }
+    if (this._state === 'offline') {
+      debug('rejecting request immediatly, client offline')
+      this._currentRequest.reject({
+        'err': OFFLINE,
+        'message': 'no connection to modbus server'
+      })
+      this._clearCurrentRequest()
+      /* start next request */
+      setTimeout(this._flush.bind(this), 0)
+      return
+    }
 
     let payload = this._currentRequest.createPayload()
 
